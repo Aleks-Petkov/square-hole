@@ -4,7 +4,6 @@
 (def PORT 8080)
 
 (defonce server-atom (atom nil))
-
 (defn server-started?
   []
   (boolean (deref server-atom)))
@@ -16,7 +15,7 @@
     (let [stop-server-fn (run-server (fn [request]
                                        {:status 200
                                         :headers {"Content-Type" "text/html"}
-                                        :body (str "<h1> the square hole?<br/>" (apply str (repeat 10000 "&#x1f440;")) "</h1>")})
+                                        :body (str "<h1> the square hole?<br/>" (apply str (repeat 10 "&#x1f440;")) "</h1>")})
                                      {:port PORT})]
       (reset! server-atom stop-server-fn)
       (println (str "Cooking on localhost:" PORT "/")))))
@@ -30,9 +29,8 @@
       (reset! server-atom nil)
       "Stopped cooking")))
 
-(comment
+
+(defn main
+  [opts]
   (start!)
-  (stop!)
-  (server-started?))
-
-
+  )
