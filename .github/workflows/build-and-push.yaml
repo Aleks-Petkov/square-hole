@@ -15,4 +15,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ghcr.io/${{ github.repository }}/square-hole:latest
+        tags: ghcr.io/aleks-petkov/square-hole/square-hole:latest
